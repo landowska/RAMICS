@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAMICS - Responsible Adaptive Multi-agent Embodied AI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --background: #f8fafc;
+            --text: #1e293b;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1200/800');
+            background-size: cover;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .about-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .acronym-highlight {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <h2>RAMICS</h2>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#team">Team</a>
+                <a href="#gallery">Gallery</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>RAMICS</h1>
+            <p class="hero-subtitle">
+                <span class="acronym-highlight">R</span>esponsible 
+                <span class="acronym-highlight">A</span>daptive 
+                <span class="acronym-highlight">M</span>ulti-agent Embodied Artificial 
+                <span class="acronym-highlight">I</span>ntelligence in 
+                <span class="acronym-highlight">C</span>omplex 
+                <span class="acronym-highlight">S</span>paces
+            </p>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">About RAMICS</h2>
+        <p>RAMICS is a cutting-edge research project exploring the frontiers of embodied artificial intelligence in multi-agent systems. Our focus is on developing responsible and adaptive robotic systems that can effectively navigate and operate in complex, real-world environments.</p>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <i class="fas fa-robot"></i>
+                <h3>Embodied AI</h3>
+                <p>Developing intelligent systems that interact with the physical world through robotic embodiment</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-network-wired"></i>
+                <h3>Multi-Agent Systems</h3>
+                <p>Creating collaborative networks of intelligent agents that work together to solve complex tasks</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Responsible AI</h3>
+                <p>Ensuring ethical considerations and safety in adaptive intelligent systems</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section">
+        <h2 class="section-title">Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="/api/placeholder/150/150" alt="Team Member 1">
+                <h3>Team Member Name</h3>
+                <p>Research Lead</p>
+            </div>
+            <div class="team-member">
+                <img src="/api/placeholder/150/150" alt="Team Member 2">
+                <h3>Team Member Name</h3>
+                <p>Robotics Engineer</p>
+            </div>
+            <div class="team-member">
+                <img src="/api/placeholder/150/150" alt="Team Member 3">
+                <h3>Team Member Name</h3>
+                <p>AI Researcher</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <h2 class="section-title">Project Gallery</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/api/placeholder/300/250" alt="RAMICS Robot Prototype">
+            </div>
+            <div class="gallery-item">
+                <img src="/api/placeholder/300/250" alt="Multi-agent Interaction">
+            </div>
+            <div class="gallery-item">
+                <img src="/api/placeholder/300/250" alt="Complex Environment Testing">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 RAMICS Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>
