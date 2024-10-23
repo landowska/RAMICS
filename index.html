@@ -1,7 +1,248 @@
 <!DOCTYPE html>
-<!-- Previous style section with black and yellow theme remains exactly the same -->
-[Previous styles remain unchanged...]
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAMICS - Responsible Adaptive Multi-agent Embodied AI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
 
+        :root {
+            --primary: #FFD700;          /* Bright yellow */
+            --primary-dark: #FFC000;     /* Darker yellow for hover */
+            --secondary: #222222;        /* Dark gray */
+            --background: #111111;       /* Nearly black */
+            --text: #FFFFFF;            /* White text */
+            --text-dark: #111111;       /* Dark text for yellow backgrounds */
+            --card-bg: #1A1A1A;         /* Slightly lighter black for cards */
+            --yellow-glow: 0 0 15px rgba(255, 215, 0, 0.3); /* Yellow glow effect */
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-dark);
+            text-shadow: var(--yellow-glow);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/800');
+            background-size: cover;
+            color: var(--text);
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            color: var(--primary);
+            text-shadow: var(--yellow-glow);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-shadow: var(--yellow-glow);
+        }
+
+        .project-description {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .initiative-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--yellow-glow);
+        }
+
+        .about-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--yellow-glow);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:hover {
+            box-shadow: var(--yellow-glow);
+        }
+
+        footer {
+            background: var(--secondary);
+            color: var(--text);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--primary);
+        }
+
+        .acronym-highlight {
+            font-weight: 600;
+            color: var(--primary);
+            text-shadow: var(--yellow-glow);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
 <body>
     <header class="header">
         <nav class="nav">
@@ -82,9 +323,23 @@
         </div>
     </section>
 
-    <!-- Gallery section remains the same -->
-    
+    <section id="gallery" class="section">
+        <h2 class="section-title">Project Gallery</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/api/placeholder/300/250" alt="RAMICS Robot Prototype">
+            </div>
+            <div class="gallery-item">
+                <img src="/api/placeholder/300/250" alt="Multi-agent Interaction">
+            </div>
+            <div class="gallery-item">
+                <img src="/api/placeholder/300/250" alt="Complex Environment Testing">
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p>© 2024 RAMICS Project. All rights reserved.</p>
     </footer>
 </body>
+</html>
